@@ -1,0 +1,36 @@
+---
+title: "R Markdown Presentation & Plotly"
+author: "Mohamad Tayara"
+date: "March 29 2022"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r  include=FALSE}
+library(plotly)
+```
+## Iris dataset by Sepal.Width sumarry
+```{r echo = FALSE}
+data(iris)
+#plot_ly(x= iris$Sepal.Width, y= iris$Sepal.Length, z = iris$Species, 
+#type = "scatter3d", mode = "markers", color = iris$Species)
+tapply( iris$Sepal.Width, iris$Species, summary)
+
+```
+## Iris dataset by Sepal.Length sumarry
+```{r echo = FALSE}
+
+tapply( iris$Sepal.Length, iris$Species, summary)
+```
+## Iris dataset 3d scatter plot
+
+```{r echo = FALSE}
+plot_ly(x= iris$Petal.Width, y= iris$Petal.Length, z = iris$Species, 
+type = "scatter3d", mode = "markers", color = iris$Species)
+#put your mouse on the 3D picture and move your mouse, you can see the picture 
+#from different angles
+``` 
